@@ -48,12 +48,28 @@ def remove_student(students):
         while True:
             try:
                 profile = int(input("Enter the Student Number you wanna remove: "))
+
+                if profile < 1 or profile > len(students):
+                    print("Enter valid student number! ")
+                else:
+                    break
+            except:
+                print("Only type student number to procced! ")
+
+
+        while True:
+            confirmation = input("Are you sure you want to delete this student? (yes/no): ").lower()
+            
+            if confirmation == "yes":
                 students.pop(profile - 1)
                 print(f"Student {profile} has removed!")
                 input("Enter to continue! ")
                 break
-            except:
-                print("Enter valid Student Number to procced! ")
+            elif confirmation == "no":
+                print("Deletion cancelled! ")
+                break
+            else:
+                print("Only answer in yes/no, try again! ")
 
     else:
         print("No Student found! ")
