@@ -3,9 +3,32 @@ id = 100
 
 def add_student():
     global id
-    student_name = input("Enter Student Name: ")
-    student_age = int(input("Enter Student Age: "))
-    student_class = int(input("Enter Student Class: "))
+    while True:
+        student_name = input("Enter Student Name: ")
+        if student_name == "":
+            print("Name can't be empty , please enter student name: ")
+        else:
+            break
+    while True:
+        try:
+            student_age = int(input("Enter Student Age: "))
+            if student_age <= 3:
+                print("Minimum age requirment is 3, try again! ")
+            else:
+                break
+        except:
+            print("Enter Age in number! ")
+    while True:
+        try:
+            student_class = int(input("Enter Student Class: "))
+
+            if student_class < 1:
+                print("Minimum class requirment is 1 , try again! ")
+            else:
+                break
+
+        except:
+            print("Type class in numbers only! ")
 
     id += 1
     student_id = id
@@ -74,7 +97,12 @@ def operation(choice, students):
             while True:
                 try:
                     student = int(input("Enter the Student Number to update Name: "))
-                    new_name = input("Enter the name you wanna update: ")
+                    while True:
+                        new_name = input("Enter the name you wanna update: ")
+                        if new_name == "":
+                            print("Name can't be empty, please type student name! ")
+                        else:
+                            break
 
                     students[student - 1].change_name(new_name)
                     print("Student name has updated! ")
@@ -95,7 +123,16 @@ def operation(choice, students):
             while True:
                 try:
                     student = int(input("Enter the Student Number to update Age: "))
-                    new_age = int(input("Enter the Age you wanna update: "))
+                    while True:
+                        try:
+                            new_age = int(input("Enter the Age you wanna update: "))
+
+                            if new_age <= 3:
+                                print("Minimum Age requirment is 3, try again! ")
+                            else:
+                                break
+                        except:
+                            print("Type age in numbers! ")
 
                     students[student - 1].change_age(new_age)
                     print("Student Age has updated! ")
@@ -116,7 +153,16 @@ def operation(choice, students):
             while True:
                 try:
                     student = int(input("Enter the Student Number to update Class: "))
-                    new_class = input("Enter the Class you wanna update: ")
+                    while True:
+                        try:
+                            new_class = int(input("Enter the Class you wanna update: "))
+                            if new_class < 1:
+                                print("Minimum class requirment is 1, try again! ")
+                            else:
+                                break
+
+                        except:
+                            print("Enter class in numbers only")
 
                     students[student - 1].change_class(new_class)
                     print("Student Class has updated! ")
