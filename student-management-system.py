@@ -74,8 +74,9 @@ def menu():
     print("4. Change Student Age")
     print("5. Change Student Class")
     print("6. Remove Student")
+    print("7. Total students")
     print("---------------------------------")
-    print("7. Exit")
+    print("8. Exit")
 
 def operation(choice, students):
     if choice == 1:
@@ -178,8 +179,13 @@ def operation(choice, students):
     elif choice == 6:
         remove_student(students)
 
-            
+    
     elif choice == 7:
+        print(f"Total students: {len(students)}")
+        input("Enter to continue! ")
+
+            
+    elif choice == 8:
         return True
 
 class Student:
