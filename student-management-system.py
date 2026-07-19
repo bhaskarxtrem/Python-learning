@@ -91,8 +91,9 @@ def menu():
     print("5. Change Student Class")
     print("6. Remove Student")
     print("7. Total students")
+    print("8. Clear all Students")
     print("---------------------------------")
-    print("8. Exit")
+    print("9. Exit")
 
 def operation(choice, students):
     if choice == 1:
@@ -202,6 +203,21 @@ def operation(choice, students):
 
             
     elif choice == 8:
+        if students:
+            confirmation = input("This will remove all students data, Are you sure? (yes/no): ")
+            if confirmation == "yes":
+                students.clear()
+                print("All students data has been cleared! ")
+                input("Enter to go back to the main menu! ")
+            elif confirmation == "no":
+                print("Deletion cancelled! ")
+                input("Enter to go back to the main menu! ")
+            else:
+                print("Answer only in (yes/no), try again! ")
+        else:
+            print("No students found! ")    
+    
+    elif choice == 9:
         return True
 
 class Student:
