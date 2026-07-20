@@ -38,7 +38,11 @@ def add_student():
     students.append(new_student)
 
     print("Student Added! ")
-    input("Enter to continue! ")
+    print(f"\nName: {student_name}")
+    print(f"Age: {student_age}")
+    print(f"Class: {student_class}")
+    print(f"Student ID: {student_id}")
+    input("\nEnter to continue! ")
 
 def remove_student(students):
     if students:
@@ -96,6 +100,7 @@ def menu():
     print("9. Exit")
 
 def operation(choice, students):
+    global id
     if choice == 1:
         add_student()
     
@@ -207,6 +212,7 @@ def operation(choice, students):
             confirmation = input("This will remove all students data, Are you sure? (yes/no): ")
             if confirmation == "yes":
                 students.clear()
+                id = 100
                 print("All students data has been cleared! ")
                 input("Enter to go back to the main menu! ")
             elif confirmation == "no":
