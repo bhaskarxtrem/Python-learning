@@ -80,9 +80,9 @@ def remove_student(students):
         input("Enter to continue! ")
 
 def all_students(students):
-    for i in range(len(students)):
-        print(f"Student {i+1}")
-        students[i].show_students()
+    for i, student in enumerate(students, start=1):
+        print(f"Student {i}")
+        student.show_students()
         print("---------------------------------")
 
 
